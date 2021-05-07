@@ -34,7 +34,7 @@
       <a class="underlineHover" href="#">Olvidó su contraseña?</a>
     </div>
     <?php
-include_once("conexion/conexion.php");
+include_once("conexion.php");
 
 if(isset($_POST['btnlogin'])){
 
