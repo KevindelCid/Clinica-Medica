@@ -95,58 +95,23 @@
                 <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/consulta.jpg');">
      
                   <div class="card-description">
-                    <h2 style="color: white;">Nueva Consulta</h2>
-                    <p>Ha llegado una persona a consulta...</p>
+                    <h2 style="color: white;">Primera consulta</h2>
+                    <p>Ha llegado a consulta una persona por primera vez (o alguien que no se encuentra aún en el sistema)...</p>
                   </div>
                   <img class="card-user avatar avatar-large" src="images/about-me.jpg">
-                  <a class="card-link" href="consulta.php" ></a>
+                  <a class="card-link" href="primera-consulta.php" ></a>
                 </div>
               </div>
               <div class="col-xs-10 col-sm-6">
                 <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/nuevopaciente.jpg');">
           
                   <div class="card-description">
-                    <h2 style="color: white;">Ingresar un nuevo paciente</h2>
-                    <p>Ingresar un paciente a la base de datos</p>
+                    <h2 style="color: white;">Seguimento</h2>
+                    <p>Ha llegado a consulta una persona que ha llegado con anterioridad y ya existe en el sistema.</p>
                   </div>
                   <img class="card-user avatar avatar-large" src="images/danielCard.jpg">
-                  <a class="card-link" href="#" ></a>
+                  <a class="card-link" href="seguimiento-consultas.php" ></a>
                 </div>
-              </div>
-              <div class="col-xs-10 col-sm-6">
-                <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/pacientes.png');">
-     
-                  <div class="card-description">
-                    <h2 style="color: white;">Listado de pacientes</h2>
-                    <p>Visualizar o buscar pacientes/ acceder a su información(Acceso restringido)</p>
-                  </div>
-                  <img class="card-user avatar avatar-large" src="images/about-me.jpg">
-                  <a class="card-link" href="libros.html" ></a>
-                </div>
-              </div>
-              <div class="col-xs-10 col-sm-6">
-                <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/sat.png');">
-          
-                  <div class="card-description">
-                    <h2 style="color: white;">Facturar en linea</h2>
-                    <p>Facturar el linea desde el portal de la SAT</p>
-                  </div>
-                  <img class="card-user avatar avatar-large" src="images/danielCard.jpg">
-                  <a class="card-link" href="#" ></a>
-                </div>
-              </div>
-              <div class="col-xs-10 col-sm-6">
-                <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/agenda.jpg');">
-          
-                  <div class="card-description">
-                    <h2 style="color: white;">Agenda</h2>
-                    <p>Visualizar las citas y programar nuevas citas</p>
-                  </div>
-                  <img class="card-user avatar avatar-large" src="images/danielCard.jpg">
-                  <a class="card-link" href="#" ></a>
-                </div>
-              </div>
-            
             
         
    
