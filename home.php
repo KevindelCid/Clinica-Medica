@@ -132,7 +132,7 @@
                     <p>Facturar el linea desde el portal de la SAT</p>
                   </div>
                   <img class="card-user avatar avatar-large" src="images/danielCard.jpg">
-                  <a class="card-link" href="#" ></a>
+                  <a class="card-link" target="_blank" href="https://portal.sat.gob.gt/portal/" ></a>
                 </div>
               </div>
               <div class="col-xs-10 col-sm-6">

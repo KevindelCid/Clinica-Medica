@@ -35,7 +35,7 @@
             <a href="#"><span class="fa fa-users"></span> Pacientes</a>
           </li>
           <li>
-            <a href="#"><span class="fa fa-money"></span> Facturación</a>
+            <a href="https://portal.sat.gob.gt/portal/" target="_blank"><span class="fa fa-money"></span> Facturación</a>
           </li>
           <li>
             <a href="#"><span class="fa fa-table"></span> Agenda</a>
@@ -82,7 +82,7 @@
           </div>
         </nav>
 
-        <h2 class="mb-4">Página Principal</h2>
+        <h2 class="mb-4">El paciente es nuevo?</h2>
        
       
       
@@ -99,7 +99,7 @@
                     <p>Ha llegado a consulta una persona por primera vez (o alguien que no se encuentra aún en el sistema)...</p>
                   </div>
                   <img class="card-user avatar avatar-large" src="images/about-me.jpg">
-                  <a class="card-link" href="primera-consulta.php" ></a>
+                  <a class="card-link" href="primera-consulta.php?new" ></a>
                 </div>
               </div>
               <div class="col-xs-10 col-sm-6">
@@ -130,3 +130,4 @@
     <script src="js/main.js"></script>
   </body>
 </html>
+ 

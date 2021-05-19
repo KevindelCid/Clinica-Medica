@@ -1511,13 +1511,13 @@ pre {
 .table-active,
 .table-active > th,
 .table-active > td {
-  background-color: rgba(0, 0, 0, 0.075); }
+  background-color: rgba(0, 0, 0, 0.872); }
 
 .table-hover .table-active:hover {
-  background-color: rgba(0, 0, 0, 0.075); }
+  background-color: rgba(146, 31, 31, 0.749); }
   .table-hover .table-active:hover > td,
   .table-hover .table-active:hover > th {
-    background-color: rgba(0, 0, 0, 0.075); }
+    background-color: rgba(72, 1, 1, 0.961); }
 
 .table .thead-dark th {
   color: #fff;
@@ -4424,7 +4424,7 @@ input[type="button"].btn-block {
     background-color: #fff; }
   .list-group-item.active {
     z-index: 2;
-    color: #fff;
+    color:#002752;
     background-color: #007bff;
     border-color: #007bff; }
 
@@ -8223,7 +8223,8 @@ h1, h2, h3, h4, h5,
   #sidebar.active {
     min-width: 80px;
     max-width: 80px;
-    text-align: center; }
+    text-align: center; 
+  color: #0b2e13;}
     #sidebar.active ul.components li {
       font-size: 14px; }
       #sidebar.active ul.components li a {

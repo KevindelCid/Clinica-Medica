@@ -1,3 +1,7 @@
+
+<?php
+ob_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -83,12 +87,96 @@
 
         <h2 class="mb-4">Nuevo Paciente</h2>
         <h6>Ingrese los datos que se solicitan a continuación</h6>
-       
+ 
+        <form method="POST" action="primera-consulta.php">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-md-10">
+      <div class="form-group">
+        <label for="">Información básica del nuevo paciente</label>
+        <div class="input-group">
+          <input name="ape1" id="remitosucursal" type="text" required class="form-control" placeholder="Primer Apellido">
+          <span class="input-group-addon" style="color: white;">-</span>
+          <input name="ape2" id="ape2" type="text" required class="form-control" placeholder="Segundo Apellido">
+          <span class="input-group-addon" style="color: white;">--------------</span>
+          <input name="nom1" id="remitosucursal" type="text" required class="form-control" placeholder="Primer Nombre">
+          <span class="input-group-addon" style="color: white;">-</span>
+          <input name="nom2" id="remitonumero" type="text" required class="form-control" placeholder="Segundo Nombre">
+        </div>
+        <label for="">Nro. remito</label>
+        <div class="input-group">
+          <input name="fecha" id="remitosucursal" type="date" required class="form-control" placeholder="Fecha de Nacimiento">
+          <span class="input-group-addon" style="color: white;">-</span>
+          <select name="sexo" value="Hombre/Mujer" id="remitonumero" type="text" required class="form-control" placeholder="Segundo Apellido">
+          <option value="value1"selected >Seleccione el Sexo</option>
+  <option value="value2" >Masculino</option>
+  <option value="value3">Femenino</option>
+        </select>
+          <span class="input-group-addon" style="color: white;">--------------</span>
+          <input name="naci" id="remitosucursal" type="text" required class="form-control" placeholder="Lugar de nacimiento">
+          <span class="input-group-addon" style="color: white;">-</span>
+          <input name="resi" id="remitonumero" type="text" required class="form-control" placeholder="Lugar de recidencia">
+        </div>
+      </div>
+    </div>
+  </div>
+  <p></p>
+  <button type="submit" class="btn btn-primary" name="aggpac" id="aggpac" >Agregar el nuevo Paciente.</button>
+  <button onclick="location.href='primera-consulta.php'"type="submit" name="aggpacyc" id="aggpacyc" class="btn btn-success">Agregar y Continuar con una consulta</button>
+</div>
 
+        </form>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
-Aplicación web para rescate y preservación de los sistemas ancestrales Mayas de cálculo de tiempo conforme al Cholq’ij para contadores del tiempo maya en el municipio de Coatepeque, Quetzaltenango
+<?php
+
+include_once("conexion.php");
+
+if(isset($_POST['aggpac'])){
+
+
+
+    
+$sql = "INSERT INTO pacientes  VALUES (null, '".$_POST['ape1']."', '".$_POST['ape2']."','".$_POST['nom1']."','".$_POST['nom2']."','".$_POST['sexo']."','".$_POST['fecha']."','".$_POST['naci']."','".$_POST['resi']."')";
+if (mysqli_query($conexion, $sql)) {
+      echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> El paciente se ha ingresado a la base de datos  <img src=\"src/sistema/success.png\"
+      alt=\"La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados\" width=\"30\"height=\"30\">";
+} else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+
+
+
+}
+
+
+if(isset($_POST['aggpacyc'])){
+
+
+
+    
+  $sql = "INSERT INTO pacientes  VALUES (null, '".$_POST['ape1']."', '".$_POST['ape2']."','".$_POST['nom1']."','".$_POST['nom2']."','".$_POST['sexo']."','".$_POST['fecha']."','".$_POST['naci']."','".$_POST['resi']."')";
+  if (mysqli_query($conexion, $sql)) {
+        echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> El paciente se ha ingresado a la base de datos  <img src=\"src/sistema/success.png\"
+        alt=\"La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados\" width=\"30\"height=\"30\">";
+        
+  } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+  
+  
+  
+  
+  }
+
+
+
+?>
+<?php
+ob_end_flush();
+?>

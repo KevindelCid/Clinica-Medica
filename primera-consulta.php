@@ -1,19 +1,19 @@
+
+<?php
+ob_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
   	<title>Página principal</title>
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:300,400,500,700">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="./css/libs.css">
-    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/formpacientes.css"/>
   </head>
   <body>
 		
@@ -28,7 +28,6 @@
             <a href="consulta.php"><span class="fa fa-pencil-square-o"></span> Nueva Consulta</a>
           </li>
           <li>
-
               <a href="nuevo_paciente.php"><span class="fa fa-user"></span> Nuevo Paciente</a>
           </li>
           <li>
@@ -82,47 +81,133 @@
           </div>
         </nav>
 
-        <h2 class="mb-4">Primera consulta...</h2>
-       
-      
-      
-        <!-- <nav class="site-navigation">
 
-       
-    
-    
-            <div class="col-xs-10 col-sm-6">
-                <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/consulta.jpg');">
-     
-                  <div class="card-description">
-                    <h2 style="color: white;">Primera consulta</h2>
-                    <p>Ha llegado a consulta una persona por primera vez (o alguien que no se encuentra aún en el sistema)...</p>
-                  </div>
-                  <img class="card-user avatar avatar-large" src="images/about-me.jpg">
-                  <a class="card-link" href="consulta/primera-consulta.php" ></a>
+
+
+
+        <h2 class="mb-4">Primera cosulta de: </h2>
+        <h6>Ingrese los datos que se solicitan a continuación</h6> 
+ 
+        <!-- <form method="POST" action="primera-consulta.php">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-md-10">
+      <div class="form-group">
+        <label for="">Información básica del nuevo paciente</label>
+        <div class="input-group">
+          <input name="ape1" id="remitosucursal" type="text" required class="form-control" placeholder="Primer Apellido">
+          <span class="input-group-addon" style="color: white;">-</span>
+          <input name="ape2" id="ape2" type="text" required class="form-control" placeholder="Segundo Apellido">
+          <span class="input-group-addon" style="color: white;">--------------</span>
+          <input name="nom1" id="remitosucursal" type="text" required class="form-control" placeholder="Primer Nombre">
+          <span class="input-group-addon" style="color: white;">-</span>
+          <input name="nom2" id="remitonumero" type="text" required class="form-control" placeholder="Segundo Nombre">
+        </div>
+        <label for="">Nro. remito</label>
+        <div class="input-group">
+          <input name="fecha" id="remitosucursal" type="date" required class="form-control" placeholder="Fecha de Nacimiento">
+          <span class="input-group-addon" style="color: white;">-</span>
+          <select name="sexo" value="Hombre/Mujer" id="remitonumero" type="text" required class="form-control" placeholder="Segundo Apellido">
+          <option value="value1"selected >Seleccione el Sexo</option>
+  <option value="value2" >Masculino</option>
+  <option value="value3">Femenino</option>
+        </select>
+          <span class="input-group-addon" style="color: white;">--------------</span>
+          <input name="naci" id="remitosucursal" type="text" required class="form-control" placeholder="Lugar de nacimiento">
+          <span class="input-group-addon" style="color: white;">-</span>
+          <input name="resi" id="remitonumero" type="text" required class="form-control" placeholder="Lugar de recidencia">
+        </div>
+        <label for="">Información clínica</label>
+        <div class="input-group">
+        <textarea name="Text1" cols="40" class="input-group-addon" rows="5" placeholder="Motivo de la consulta"></textarea>
+          <span class="input-group-addon" style="color: white;">-</span>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  <p></p>
+  <button type="submit" class="btn btn-primary" name="aggpac" id="aggpac" >Agregar el nuevo Paciente.</button>
+  <button onclick="location.href='primera-consulta.php'"type="submit" name="aggpacyc" id="aggpacyc" class="btn btn-success">Agregar y Continuar con una consulta</button>
+</div>
+
+        </form> -->
+
+
+
+        <div class="col-md-6">
+          <div class="box">
+            <!-- <h3 class="heading">How Can We Help?</h3> -->
+            <form class="mb-5" method="post" id="contactForm" name="contactForm">
+              <div class="row">
+                
+                <div class="col-md-6 form-group">
+                  <label for="name" class="col-form-label">  </label>
+                  <input type="text" class="form-control" name="name" id="name" placeholder="Primer Apellido">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="name" class="col-form-label"></label>
+                  <input type="text" class="form-control" name="organization" id="organization" placeholder="Segundo Apellido">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="name" class="col-form-label">  </label>
+                  <input type="text" class="form-control" name="name" id="name" placeholder="Primer Nombre">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="name" class="col-form-label"></label>
+                  <input type="text" class="form-control" name="organization" id="organization" placeholder="Segundo Nombre">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="name" class="col-form-label">Fecha de nacimiento</label>
+                  <input type="date" class="form-control" name="organization" id="organization" placeholder="fecha de nacimiento">
+                </div>
+                
+                <div class="col-md-6 form-group">
+                  <label for="name" class="col-form-label">Selecciona el sexo</label>
+                  <select class="custom-select" id="budget" name="budget">
+                  <option value="M" >Género...</option>
+       <option value="M" >Masculino</option>
+    <option value="F">Femenino</option>
+      </select>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="name" class="col-form-label">  </label>
+                  <input type="text" class="form-control" name="name" id="name" placeholder="Lugar de nacimiento">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="name" class="col-form-label"></label>
+                  <input type="text" class="form-control" name="organization" id="organization" placeholder="Lugar de recidencia">
                 </div>
               </div>
-              <div class="col-xs-10 col-sm-6">
-                <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/nuevopaciente.jpg');">
-          
-                  <div class="card-description">
-                    <h2 style="color: white;">Seguimento</h2>
-                    <p>Ha llegado a consulta una persona que ha llegado con anterioridad y ya existe en el sistema.</p>
-                  </div>
-                  <img class="card-user avatar avatar-large" src="images/danielCard.jpg">
-                  <a class="card-link" href="consulta/seguimiento-consultas.php" ></a>
+
+
+           
+
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="message" class="col-form-label"></label>
+                  <textarea placeholder="Motivo de la consulta..." class="form-control" name="message" id="message" cols="30" rows="7"></textarea>
                 </div>
-             -->
-        
-   
-    
-        <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-      
-      
+              </div>
+     
+
+              <div class="row">
+                <div class="col-md-12">
+                  <input type="submit" value="Agregar nueva consulta" class="btn btn-block btn-primary rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                </div>
+              </div>
+            </form>
+
+            <div id="form-message-warning mt-4"></div> 
+            <div id="form-message-success">
+              Al precionar el botón "Agregar una nueva consulta" este evento consulta será accesible por el Dr. y solamente él podrá editar el resto de la imformacion de esta consulta y visualizarla posteriormente.
+            </div>
+          </div>
+        </div>
       </div>
-		</div>
+  </div>
+    
 
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
@@ -130,3 +215,51 @@
     <script src="js/main.js"></script>
   </body>
 </html>
+<?php
+
+include_once("conexion.php");
+
+if(isset($_POST['aggpac'])){
+
+
+
+    
+$sql = "INSERT INTO pacientes  VALUES (null, '".$_POST['ape1']."', '".$_POST['ape2']."','".$_POST['nom1']."','".$_POST['nom2']."','".$_POST['sexo']."','".$_POST['fecha']."','".$_POST['naci']."','".$_POST['resi']."')";
+if (mysqli_query($conexion, $sql)) {
+      echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> El paciente se ha ingresado a la base de datos  <img src=\"src/sistema/success.png\"
+      alt=\"La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados\" width=\"30\"height=\"30\">";
+} else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+
+
+
+}
+
+
+if(isset($_POST['aggpacyc'])){
+
+
+
+    
+  $sql = "INSERT INTO pacientes  VALUES (null, '".$_POST['ape1']."', '".$_POST['ape2']."','".$_POST['nom1']."','".$_POST['nom2']."','".$_POST['sexo']."','".$_POST['fecha']."','".$_POST['naci']."','".$_POST['resi']."')";
+  if (mysqli_query($conexion, $sql)) {
+        echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> El paciente se ha ingresado a la base de datos  <img src=\"src/sistema/success.png\"
+        alt=\"La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados\" width=\"30\"height=\"30\">";
+        
+  } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+  
+  
+  
+  
+  }
+
+
+
+?>
+<?php
+ob_end_flush();
+?>
