@@ -122,7 +122,7 @@ ob_start();
   </div>
   <p></p>
   <button type="submit" class="btn btn-primary" name="aggpac" id="aggpac" >Agregar el nuevo Paciente.</button>
-  <button onclick="location.href='primera-consulta.php'"type="submit" name="aggpacyc" id="aggpacyc" class="btn btn-success">Agregar y Continuar con una consulta</button>
+
 </div>
 
         </form>
@@ -144,7 +144,7 @@ if(isset($_POST['aggpac'])){
 $sql = "INSERT INTO pacientes  VALUES (null, '".$_POST['ape1']."', '".$_POST['ape2']."','".$_POST['nom1']."','".$_POST['nom2']."','".$_POST['sexo']."','".$_POST['fecha']."','".$_POST['naci']."','".$_POST['resi']."')";
 if (mysqli_query($conexion, $sql)) {
       echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> El paciente se ha ingresado a la base de datos  <img src=\"src/sistema/success.png\"
-      alt=\"La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados\" width=\"30\"height=\"30\">";
+      alt=\"chequsito\" width=\"30\"height=\"30\">";
 } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
@@ -155,24 +155,10 @@ if (mysqli_query($conexion, $sql)) {
 }
 
 
-if(isset($_POST['aggpacyc'])){
 
 
 
-    
-  $sql = "INSERT INTO pacientes  VALUES (null, '".$_POST['ape1']."', '".$_POST['ape2']."','".$_POST['nom1']."','".$_POST['nom2']."','".$_POST['sexo']."','".$_POST['fecha']."','".$_POST['naci']."','".$_POST['resi']."')";
-  if (mysqli_query($conexion, $sql)) {
-        echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> El paciente se ha ingresado a la base de datos  <img src=\"src/sistema/success.png\"
-        alt=\"La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados\" width=\"30\"height=\"30\">";
-        
-  } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  }
-  
-  
-  
-  
-  }
+
 
 
 

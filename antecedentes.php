@@ -1,11 +1,10 @@
-
 <?php
 ob_start();
 ?>
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Página principal</title>
+  	<title>Agregar Historia</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -86,127 +85,83 @@ ob_start();
 
 
 
-        <h2 class="mb-4">Primera cosulta</h2>
-        <h6>Ingrese los datos que se solicitan a continuación</h6> 
+        <h2 class="mb-4">Antecedentes</h2>
+        <h6>Ingresar los datos que se solicitan</h6> 
  
-        <!-- <form method="POST" action="primera-consulta.php">
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-md-10">
-      <div class="form-group">
-        <label for="">Información básica del nuevo paciente</label>
-        <div class="input-group">
-          <input name="ape1" id="remitosucursal" type="text" required class="form-control" placeholder="Primer Apellido">
-          <span class="input-group-addon" style="color: white;">-</span>
-          <input name="ape2" id="ape2" type="text" required class="form-control" placeholder="Segundo Apellido">
-          <span class="input-group-addon" style="color: white;">--------------</span>
-          <input name="nom1" id="remitosucursal" type="text" required class="form-control" placeholder="Primer Nombre">
-          <span class="input-group-addon" style="color: white;">-</span>
-          <input name="nom2" id="remitonumero" type="text" required class="form-control" placeholder="Segundo Nombre">
-        </div>
-        <label for="">Nro. remito</label>
-        <div class="input-group">
-          <input name="fecha" id="remitosucursal" type="date" required class="form-control" placeholder="Fecha de Nacimiento">
-          <span class="input-group-addon" style="color: white;">-</span>
-          <select name="sexo" value="Hombre/Mujer" id="remitonumero" type="text" required class="form-control" placeholder="Segundo Apellido">
-          <option value="value1"selected >Seleccione el Sexo</option>
-  <option value="value2" >Masculino</option>
-  <option value="value3">Femenino</option>
-        </select>
-          <span class="input-group-addon" style="color: white;">--------------</span>
-          <input name="naci" id="remitosucursal" type="text" required class="form-control" placeholder="Lugar de nacimiento">
-          <span class="input-group-addon" style="color: white;">-</span>
-          <input name="resi" id="remitonumero" type="text" required class="form-control" placeholder="Lugar de recidencia">
-        </div>
-        <label for="">Información clínica</label>
-        <div class="input-group">
-        <textarea name="Text1" cols="40" class="input-group-addon" rows="5" placeholder="Motivo de la consulta"></textarea>
-          <span class="input-group-addon" style="color: white;">-</span>
-         
-        </div>
-      </div>
-    </div>
-  </div>
-  <p></p>
-  <button type="submit" class="btn btn-primary" name="aggpac" id="aggpac" >Agregar el nuevo Paciente.</button>
-  <button onclick="location.href='primera-consulta.php'"type="submit" name="aggpacyc" id="aggpacyc" class="btn btn-success">Agregar y Continuar con una consulta</button>
-</div>
 
-        </form> -->
-
-
-
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="box">
             <!-- <h3 class="heading">How Can We Help?</h3> -->
             <form class="mb-5" method="post" id="contactForm" name="contactForm">
               <div class="row">
                 
                 <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label">  </label>
-                  <input type="text" class="form-control" name="ape1" id="ape1" placeholder="Primer Apellido">
+                  <label for="name" class="col-form-label">Antecedentes familiares</label>
+                  <input type="text" class="form-control" name="fam" id="fam" placeholder="Familiares">
                 </div>
                 <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label"></label>
-                  <input type="text" class="form-control" name="ape2" id="ape2" placeholder="Segundo Apellido">
+                  <label for="name" class="col-form-label">Antecedentes Médicos</label>
+                  <input type="text" class="form-control" name="med" id="med" placeholder="Médicos">
                 </div>
                 <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label">  </label>
-                  <input type="text" class="form-control" name="nom1" id="nom1" placeholder="Primer Nombre">
+                  <label for="name" class="col-form-label">Antecedentes Alérgicos</label>
+                  <input type="text" class="form-control" name="med" id="med" placeholder="Alérgicos">
                 </div>
                 <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label"></label>
-                  <input type="text" class="form-control" name="nom2" id="nom2" placeholder="Segundo Nombre">
+                  <label for="name" class="col-form-label">Antecedentes Quirúrgicos</label>
+                  <input type="text" class="form-control" name="med" id="med" placeholder="Quirúrgicos">
+                </div>
+                <div class="col-md-12 form-group">
+                  <label for="name" class="col-form-label">Antecedentes Traumáticos</label>
+                  <input type="text" class="form-control" name="med" id="med" placeholder="Traumáticos">
+                </div>
+           
+                <div class="col-md-12 form-group">
+                <h6>Obstétricos</h6> 
+ 
+                  <label for="name" class="col-form-label">Antecedentes Obstétricos</label>
+                  <input type="text" class="form-control" name="med" id="med" placeholder="Obstétricos">
                 </div>
                 <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label">Fecha de nacimiento</label>
-                  <input type="date" class="form-control" name="fecha" id="fecha" placeholder="fecha de nacimiento">
-                </div>
-                
-                <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label">Selecciona el sexo</label>
-                  <select class="custom-select" id="sexo" name="sexo">
-                  <option value="" >Género...</option>
-       <option value="M" >Masculino</option>
-    <option value="F">Femenino</option>
-      </select>
+                <label for="name" class="col-form-label">Meses de gestación</label>
+                  <input type="number" class="form-control" name="med" id="med" placeholder="Gestación">
                 </div>
                 <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label">  </label>
-                  <input type="text" class="form-control" name="naci" id="naci" placeholder="Lugar de nacimiento">
+                <label for="name" class="col-form-label">Numero de Partos</label>
+                  <input type="number" class="form-control" name="med" id="med" placeholder="Partos">
                 </div>
                 <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label"></label>
-                  <input type="text" class="form-control" name="resi" id="resi" placeholder="Lugar de recidencia">
+                <label for="name" class="col-form-label">Numero de Cesáreas</label>
+                  <input type="number" class="form-control" name="med" id="med" placeholder="Cesáreas">
                 </div>
-              </div>
+                <div class="col-md-6 form-group">
+                <label for="name" class="col-form-label">Numero de Abortos</label>
+                  <input type="number" class="form-control" name="med" id="med" placeholder="Abortos">
+                </div>
+                <div class="col-md-6 form-group">
+                <label for="name" class="col-form-label">Menarquia</label>
+                  <input type="text" class="form-control" name="med" id="med" placeholder="Menarquia">
+                </div>
+                <div class="col-md-6 form-group">
+                <label for="name" class="col-form-label">Última regla</label>
+                  <input type="text" class="form-control" name="med" id="med" placeholder="Última regla">
+                </div>
 
 
            
-
-              <div class="row">
                 <div class="col-md-12 form-group">
-                  <label for="message" class="col-form-label"></label>
-                  <textarea placeholder="Motivo de la consulta..." class="form-control" name="motivo" id="motivo" cols="30" rows="7"></textarea>
+                  <label for="message" class="col-form-label">Hábitos</label>
+                  <textarea placeholder="Hábitos..." class="form-control" name="motivo" id="motivo" cols="30" rows="3"></textarea>
                 </div>
-              </div>
-     
-
-              <div class="row">
-                <div class="col-md-12">
+            
+                <div class="col-md-12  form-group">
                   <input type="submit" name="aggpacyc" id="aggpacyc"  value="Siguiente" class="btn btn-block btn-primary rounded-0 py-2 px-4">
                   <span class="submitting"></span>
                 </div>
-              </div>
+            
+             
             </form>
 
-            <div id="form-message-warning mt-4"></div> 
-            <div id="form-message-success">
-              Al precionar el botón "Agregar una nueva consulta" este evento consulta será accesible por el Dr. y solamente él podrá editar el resto de la imformacion de esta consulta y visualizarla posteriormente.
-            </div>
-          </div>
-        </div>
-      </div>
   </div>
     
 
@@ -254,20 +209,20 @@ if (mysqli_query($conexion, $sqlc)) {
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
+
+
+
 header("Estamos redireccionandote...");
 
 
 
-header("Location: http://localhost/CLINICA-MEDICA/historia.php");
+header("Location: http://localhost/CLINICA-MEDICA/examen-fisico.php");
 
 
 exit;
 
 
-
 }
-
-
 
 
 

@@ -1,11 +1,10 @@
-
 <?php
 ob_start();
 ?>
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Página principal</title>
+  	<title>Agregar Historia</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -86,8 +85,8 @@ ob_start();
 
 
 
-        <h2 class="mb-4">Primera cosulta</h2>
-        <h6>Ingrese los datos que se solicitan a continuación</h6> 
+        <h2 class="mb-4">Historia</h2>
+        <h6>Ingresar la historia del paciente</h6> 
  
         <!-- <form method="POST" action="primera-consulta.php">
 <div class="container">
@@ -136,77 +135,32 @@ ob_start();
 
 
 
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="box">
             <!-- <h3 class="heading">How Can We Help?</h3> -->
             <form class="mb-5" method="post" id="contactForm" name="contactForm">
               <div class="row">
                 
-                <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label">  </label>
-                  <input type="text" class="form-control" name="ape1" id="ape1" placeholder="Primer Apellido">
-                </div>
-                <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label"></label>
-                  <input type="text" class="form-control" name="ape2" id="ape2" placeholder="Segundo Apellido">
-                </div>
-                <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label">  </label>
-                  <input type="text" class="form-control" name="nom1" id="nom1" placeholder="Primer Nombre">
-                </div>
-                <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label"></label>
-                  <input type="text" class="form-control" name="nom2" id="nom2" placeholder="Segundo Nombre">
-                </div>
-                <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label">Fecha de nacimiento</label>
-                  <input type="date" class="form-control" name="fecha" id="fecha" placeholder="fecha de nacimiento">
-                </div>
-                
-                <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label">Selecciona el sexo</label>
-                  <select class="custom-select" id="sexo" name="sexo">
-                  <option value="" >Género...</option>
-       <option value="M" >Masculino</option>
-    <option value="F">Femenino</option>
-      </select>
-                </div>
-                <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label">  </label>
-                  <input type="text" class="form-control" name="naci" id="naci" placeholder="Lugar de nacimiento">
-                </div>
-                <div class="col-md-6 form-group">
-                  <label for="name" class="col-form-label"></label>
-                  <input type="text" class="form-control" name="resi" id="resi" placeholder="Lugar de recidencia">
-                </div>
-              </div>
-
+              
 
            
 
               <div class="row">
-                <div class="col-md-12 form-group">
+                <div class="col-md-20 form-group">
                   <label for="message" class="col-form-label"></label>
-                  <textarea placeholder="Motivo de la consulta..." class="form-control" name="motivo" id="motivo" cols="30" rows="7"></textarea>
+                  <textarea placeholder="Historia..." class="form-control" name="motivo" id="motivo" cols="170" rows="10"></textarea>
                 </div>
               </div>
      
-
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-20">
                   <input type="submit" name="aggpacyc" id="aggpacyc"  value="Siguiente" class="btn btn-block btn-primary rounded-0 py-2 px-4">
                   <span class="submitting"></span>
                 </div>
               </div>
+            
             </form>
 
-            <div id="form-message-warning mt-4"></div> 
-            <div id="form-message-success">
-              Al precionar el botón "Agregar una nueva consulta" este evento consulta será accesible por el Dr. y solamente él podrá editar el resto de la imformacion de esta consulta y visualizarla posteriormente.
-            </div>
-          </div>
-        </div>
-      </div>
   </div>
     
 
@@ -254,11 +208,12 @@ if (mysqli_query($conexion, $sqlc)) {
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
+
 header("Estamos redireccionandote...");
 
 
 
-header("Location: http://localhost/CLINICA-MEDICA/historia.php");
+header("Location: http://localhost/CLINICA-MEDICA/antecedentes.php");
 
 
 exit;
@@ -266,7 +221,6 @@ exit;
 
 
 }
-
 
 
 

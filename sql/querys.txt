@@ -1,0 +1,51 @@
+create database clinica;
+use clinica;
+create table usuarios(
+nombre_usuario varchar(20) primary key,
+pass varchar(40),
+id_tipo int not null
+);
+-- estoy insertando el usuario que usaré para poder hacer las pruebas de todo tipo, por el momento es un usuario maestro
+insert into usuarios values('dani','123',1);
+
+create table pacientes(
+id_paciente int not null primary key auto_increment,
+apellido1 varchar(20),
+apellido2 varchar(20),
+nombre1 varchar(20),
+nombre2 varchar(20),
+sexo varchar(10),
+f_nacimiento date
+);
+alter table pacientes add column l_nacimiento varchar(30);
+alter table pacientes add column l_residencia varchar(30);
+
+delete from pacientes;
+select * from pacientes;
+
+create table consultas(
+id_consulta int not null primary key,
+id_paciente int not null,
+fecha_consulta date,
+motivo_consulta text 
+
+);
+
+create table antecedentes(
+id_antecedentes int not null primary key auto_increment,
+id_paciente int not null, -- foreign key
+familiares text,
+medicos text,
+quirurjicos text, 
+traumaticos text
+);
+create table obstetricos(
+id_obstetricos int not null primary key auto_increment,
+id_antecedentes int not null -- foreign key 
+gestacion text,
+parto
+
+
+);
+
+select * from usuarios where nombre_usuario = "dani" and pass = "123";

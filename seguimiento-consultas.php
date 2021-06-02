@@ -83,6 +83,25 @@
         </nav>
 
         <h2 class="mb-4">Seguimiento de consultas...</h2>
+
+
+        <div class="row">
+        
+        <div class="col-sm-12">
+        
+        <table class="table table-hover table-condensed table-bordered">
+        
+        <tr>
+        
+        <td>Nombre Paciente</td>
+        
+        
+        </tr>
+        
+        
+        </table>
+        </div>
+        </div>
        
       
       
