@@ -88,50 +88,7 @@ ob_start();
         <h2 class="mb-4">Historia</h2>
         <h6>Ingresar la historia del paciente</h6> 
  
-        <!-- <form method="POST" action="primera-consulta.php">
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-md-10">
-      <div class="form-group">
-        <label for="">Información básica del nuevo paciente</label>
-        <div class="input-group">
-          <input name="ape1" id="remitosucursal" type="text" required class="form-control" placeholder="Primer Apellido">
-          <span class="input-group-addon" style="color: white;">-</span>
-          <input name="ape2" id="ape2" type="text" required class="form-control" placeholder="Segundo Apellido">
-          <span class="input-group-addon" style="color: white;">--------------</span>
-          <input name="nom1" id="remitosucursal" type="text" required class="form-control" placeholder="Primer Nombre">
-          <span class="input-group-addon" style="color: white;">-</span>
-          <input name="nom2" id="remitonumero" type="text" required class="form-control" placeholder="Segundo Nombre">
-        </div>
-        <label for="">Nro. remito</label>
-        <div class="input-group">
-          <input name="fecha" id="remitosucursal" type="date" required class="form-control" placeholder="Fecha de Nacimiento">
-          <span class="input-group-addon" style="color: white;">-</span>
-          <select name="sexo" value="Hombre/Mujer" id="remitonumero" type="text" required class="form-control" placeholder="Segundo Apellido">
-          <option value="value1"selected >Seleccione el Sexo</option>
-  <option value="value2" >Masculino</option>
-  <option value="value3">Femenino</option>
-        </select>
-          <span class="input-group-addon" style="color: white;">--------------</span>
-          <input name="naci" id="remitosucursal" type="text" required class="form-control" placeholder="Lugar de nacimiento">
-          <span class="input-group-addon" style="color: white;">-</span>
-          <input name="resi" id="remitonumero" type="text" required class="form-control" placeholder="Lugar de recidencia">
-        </div>
-        <label for="">Información clínica</label>
-        <div class="input-group">
-        <textarea name="Text1" cols="40" class="input-group-addon" rows="5" placeholder="Motivo de la consulta"></textarea>
-          <span class="input-group-addon" style="color: white;">-</span>
-         
-        </div>
-      </div>
-    </div>
-  </div>
-  <p></p>
-  <button type="submit" class="btn btn-primary" name="aggpac" id="aggpac" >Agregar el nuevo Paciente.</button>
-  <button onclick="location.href='primera-consulta.php'"type="submit" name="aggpacyc" id="aggpacyc" class="btn btn-success">Agregar y Continuar con una consulta</button>
-</div>
 
-        </form> -->
 
 
 
@@ -173,13 +130,16 @@ ob_start();
 <?php
 
 include_once("conexion.php");
+$va=($_GET['id_consulta']);
+$variable1=$_GET["id_consulta"];
+echo "el id de la consulta es ".$variable1;
 
 if(isset($_POST['aggpacyc'])){
 
 
 
     
-$sql = "INSERT INTO pacientes  VALUES (null, '".$_POST['ape1']."', '".$_POST['ape2']."','".$_POST['nom1']."','".$_POST['nom2']."','".$_POST['sexo']."','".$_POST['fecha']."','".$_POST['naci']."','".$_POST['resi']."')";
+$sql = "INSERT INTO historias  VALUES (null, ".$variable1.", '".$_POST['motivo']."')";
 
 
 if (mysqli_query($conexion, $sql)) {
@@ -188,27 +148,7 @@ if (mysqli_query($conexion, $sql)) {
 
       echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> El paciente se ha ingresado a la base de datos  <img src=\"src/sistema/success.png\"
       alt=\"La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados\" width=\"30\"height=\"30\">";
-
-} else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-
-
-date_default_timezone_set("America/Guatemala");
-$id= mysqli_insert_id($conexion);
-$hoy = date("Y-m-d H:i:s");
-$sqlc = "INSERT INTO consultas  VALUES (null, '".$id."', '".$hoy."','".$_POST['motivo']."')";
-if (mysqli_query($conexion, $sqlc)) {
-
- 
-
-  echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> La consulta ha sido agregada  <img src=\"src/sistema/success.png\"
-  alt=\"chequess\" width=\"30\"height=\"30\">";
-
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-
+      
 header("Estamos redireccionandote...");
 
 
@@ -217,6 +157,12 @@ header("Location: http://localhost/CLINICA-MEDICA/antecedentes.php");
 
 
 exit;
+
+
+} else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
+}
+
 
 
 

@@ -246,7 +246,7 @@ $hoy = date("Y-m-d H:i:s");
 $sqlc = "INSERT INTO consultas  VALUES (null, '".$id."', '".$hoy."','".$_POST['motivo']."')";
 if (mysqli_query($conexion, $sqlc)) {
 
- 
+  $id_consulta= mysqli_insert_id($conexion);
 
   echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> La consulta ha sido agregada  <img src=\"src/sistema/success.png\"
   alt=\"chequess\" width=\"30\"height=\"30\">";
@@ -258,7 +258,7 @@ header("Estamos redireccionandote...");
 
 
 
-header("Location: http://localhost/CLINICA-MEDICA/historia.php");
+header("Location: http://localhost/CLINICA-MEDICA/historia.php?id_consulta=". $id_consulta);
 
 
 exit;
