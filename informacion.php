@@ -1,6 +1,4 @@
 
-
-
 <?php
 ob_start();
 session_start();
@@ -20,7 +18,7 @@ if($sesion == null || $sesion == ""){
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Página principal</title>
+  	<title>Consultas de </title>
 
 
 
@@ -116,19 +114,32 @@ if($sesion == null || $sesion == ""){
           </div>
         </nav>
 
-        <h2 class="mb-4">Seguimiento de consultas...</h2>
+        <h2 class="mb-4">aqui solo llamo toda la info de esta consulta...</h2>
 
 <?php
 
 
 include_once("conexion.php");
 
+$id = $_GET['id'];
+
 //con esta consulta llamaremos a todos los pacientes y l
-$sql = " SELECT `pacientes`.`id_paciente`, `pacientes`.`apellido1`,`pacientes`.`apellido2`,`pacientes`.`nombre1`,`pacientes`.`nombre2`,`pacientes`.`sexo`,`pacientes`.`telefono`,
+$sql = " select fecha_consulta, motivo_consulta, apellido1,apellido2,nombre1,nombre2,sexo, 
 YEAR(CURDATE())-YEAR(`pacientes`.`f_nacimiento`) + 
 IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(`pacientes`.`f_nacimiento`,'%m-%d'), 0 , -1 ) 
-AS `EDAD_ACTUAL`  , `pacientes`.`ultima_consulta`,`consultas`.`motivo_consulta` FROM `pacientes` inner join consultas 
-ON `pacientes`.`id_ultima_consulta` = `consultas`.`id_consulta`";
+AS `EDAD_ACTUAL`, `pacientes`.`telefono`,`historias`.`historia`,`antecedentes`.`antecedentes_familiares`,
+`antecedentes`.`antecedentes_medicos`,`antecedentes`.`antecedentes_quirurgicos`,`antecedentes`.`antecedentes_traumaticos`,
+`antecedentes`.`obstetricos`,`antecedentes`.`gestacion`,`antecedentes`.`partos`,`antecedentes`.`cesareas`,
+`antecedentes`.`abortos`,`antecedentes`.`menarquia`,`antecedentes`.`ur`,`antecedentes`.`habitos`,`antecedentes`.`antecedentes_alergicos`,
+`examenes_fisicos`.`presion_arterial`,`examenes_fisicos`.`pulso`,`examenes_fisicos`.`freq_resp`,`examenes_fisicos`.`freq_cardiaca`,
+`examenes_fisicos`.`temperatura`,`examenes_fisicos`.`talla`,`examenes_fisicos`.`peso`,`examenes_fisicos`.`imc`,
+`examenes_fisicos`.`peso_cat`,`examenes_fisicos`.`peso_ideal`,`examenes_fisicos`.`exceso_peso`,`examenes_fisicos`.`observaciones`
+from consultas inner join pacientes 
+ON consultas.id_paciente = pacientes.id_paciente
+inner join historias ON consultas.id_consulta = historias.id_consulta
+inner join antecedentes ON consultas.id_consulta = antecedentes.id_consulta
+inner join examenes_fisicos on consultas.id_consulta = examenes_fisicos.id_consulta
+where consultas.id_consulta = $id";
 
 $resultado = mysqli_query($conexion,$sql);
 
@@ -149,9 +160,10 @@ $resultado = mysqli_query($conexion,$sql);
         <th scope="col">Sexo</th>
         <th scope="col">Teléfono</th>
         <th scope="col">Edad</th>
-        <th scope="col">Ultima consulta</th>
-        <th scope="col">Motivo de consulta</th>
+        <th scope="col">IMC</th>
         <th scope="col">Actuadores</th>
+       
+        
       </tr>
     </thead>
     <tbody>
@@ -165,11 +177,11 @@ $resultado = mysqli_query($conexion,$sql);
         <td><?php echo $filas['sexo'] ?></td>
         <td><?php echo $filas['telefono'] ?></td>
         <td><?php echo $filas['EDAD_ACTUAL'] ?></td>
-        <td><?php echo $filas['ultima_consulta'] ?></td>
-        <td><?php echo $filas['motivo_consulta'] ?></td>
+        <td><?php echo $filas['imc'] ?></td>
+     
 <td>
 
-        <input onclick="location.href='motivo_consulta.php?id=<?php echo $filas['id_paciente'] ?>';" type="submit" name="nconsul" id="nconsul"  value="Nueva consulta" class="btn btn-block btn-primary rounded-0 py-2 px-4">
+        <input onclick="location.href='informacion.php?id=<?php echo $filas['id_paciente'] ?>';" type="submit" name="nconsul" id="nconsul"  value="Información" class="btn btn-block btn-primary rounded-0 py-2 px-4">
         </td>
 
       </tr>

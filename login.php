@@ -1,3 +1,30 @@
+
+
+<?php
+
+session_start();
+error_reporting(0);
+$sesion = $_SESSION['usuario'];
+
+
+
+
+if($sesion == null || $sesion == ""){
+
+
+
+ 
+
+}else{
+
+  header("Location: http://localhost/CLINICA-MEDICA/home.php");
+  exit;
+
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,6 +77,11 @@ $resultado = mysqli_query($conexion, $query);
 if (mysqli_num_rows($resultado)>0)
 {
 // si se encontró
+
+session_start();
+$_SESSION['usuario'] =$usuario;
+
+
 header("Location: http://localhost/CLINICA-MEDICA/home.php");
 exit;
 

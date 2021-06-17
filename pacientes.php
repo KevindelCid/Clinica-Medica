@@ -1,6 +1,5 @@
 
 
-
 <?php
 ob_start();
 session_start();
@@ -116,7 +115,7 @@ if($sesion == null || $sesion == ""){
           </div>
         </nav>
 
-        <h2 class="mb-4">Seguimiento de consultas...</h2>
+        <h2 class="mb-4">Pacientes...</h2>
 
 <?php
 
@@ -127,7 +126,7 @@ include_once("conexion.php");
 $sql = " SELECT `pacientes`.`id_paciente`, `pacientes`.`apellido1`,`pacientes`.`apellido2`,`pacientes`.`nombre1`,`pacientes`.`nombre2`,`pacientes`.`sexo`,`pacientes`.`telefono`,
 YEAR(CURDATE())-YEAR(`pacientes`.`f_nacimiento`) + 
 IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(`pacientes`.`f_nacimiento`,'%m-%d'), 0 , -1 ) 
-AS `EDAD_ACTUAL`  , `pacientes`.`ultima_consulta`,`consultas`.`motivo_consulta` FROM `pacientes` inner join consultas 
+AS `EDAD_ACTUAL`   FROM `pacientes` inner join consultas 
 ON `pacientes`.`id_ultima_consulta` = `consultas`.`id_consulta`";
 
 $resultado = mysqli_query($conexion,$sql);
@@ -149,8 +148,6 @@ $resultado = mysqli_query($conexion,$sql);
         <th scope="col">Sexo</th>
         <th scope="col">Teléfono</th>
         <th scope="col">Edad</th>
-        <th scope="col">Ultima consulta</th>
-        <th scope="col">Motivo de consulta</th>
         <th scope="col">Actuadores</th>
       </tr>
     </thead>
@@ -165,11 +162,10 @@ $resultado = mysqli_query($conexion,$sql);
         <td><?php echo $filas['sexo'] ?></td>
         <td><?php echo $filas['telefono'] ?></td>
         <td><?php echo $filas['EDAD_ACTUAL'] ?></td>
-        <td><?php echo $filas['ultima_consulta'] ?></td>
-        <td><?php echo $filas['motivo_consulta'] ?></td>
+     
 <td>
 
-        <input onclick="location.href='motivo_consulta.php?id=<?php echo $filas['id_paciente'] ?>';" type="submit" name="nconsul" id="nconsul"  value="Nueva consulta" class="btn btn-block btn-primary rounded-0 py-2 px-4">
+        <input onclick="location.href='consultas_de.php?id=<?php echo $filas['id_paciente'] ?>';" type="submit" name="nconsul" id="nconsul"  value="Consultas" class="btn btn-block btn-primary rounded-0 py-2 px-4">
         </td>
 
       </tr>

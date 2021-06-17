@@ -1,3 +1,21 @@
+
+<?php
+ob_start();
+session_start();
+$sesion = $_SESSION['usuario'];
+
+if($sesion == null || $sesion == ""){
+
+
+
+  header("Location: http://localhost/CLINICA-MEDICA/login.php");
+  exit;
+
+}
+
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>

@@ -1,6 +1,19 @@
-
 <?php
 ob_start();
+
+session_start();
+$sesion = $_SESSION['usuario'];
+
+if($sesion == null || $sesion == ""){
+
+
+
+  header("Location: http://localhost/CLINICA-MEDICA/login.php");
+  exit;
+
+}
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -146,6 +159,7 @@ ob_start();
                   <label for="name" class="col-form-label">  </label>
                   <input type="text" class="form-control" name="ape1" id="ape1" placeholder="Primer Apellido">
                 </div>
+                
                 <div class="col-md-6 form-group">
                   <label for="name" class="col-form-label"></label>
                   <input type="text" class="form-control" name="ape2" id="ape2" placeholder="Segundo Apellido">
@@ -158,6 +172,11 @@ ob_start();
                   <label for="name" class="col-form-label"></label>
                   <input type="text" class="form-control" name="nom2" id="nom2" placeholder="Segundo Nombre">
                 </div>
+                <div class="col-md-6 form-group">
+                  <label for="name" class="col-form-label">  </label>
+                  <input type="number" class="form-control" name="tel" id="tel" placeholder="Teléfono">
+                </div>
+
                 <div class="col-md-6 form-group">
                   <label for="name" class="col-form-label">Fecha de nacimiento</label>
                   <input type="date" class="form-control" name="fecha" id="fecha" placeholder="fecha de nacimiento">
@@ -225,7 +244,7 @@ if(isset($_POST['aggpacyc'])){
 
 
     
-$sql = "INSERT INTO pacientes  VALUES (null, '".$_POST['ape1']."', '".$_POST['ape2']."','".$_POST['nom1']."','".$_POST['nom2']."','".$_POST['sexo']."','".$_POST['fecha']."','".$_POST['naci']."','".$_POST['resi']."')";
+$sql = "INSERT INTO pacientes  VALUES (null, '".$_POST['ape1']."', '".$_POST['ape2']."','".$_POST['nom1']."','".$_POST['nom2']."','".$_POST['sexo']."','".$_POST['fecha']."','".$_POST['naci']."','".$_POST['resi']."',CURDATE(),'".$_POST['tel']."','".$_POST['tel']."');";
 
 
 if (mysqli_query($conexion, $sql)) {
@@ -254,10 +273,26 @@ if (mysqli_query($conexion, $sqlc)) {
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
+
+$sqlcUp = " update pacientes set id_ultima_consulta = $id_consulta where id_paciente =  
+(select id_paciente from consultas where id_consulta = $id_consulta)";
+
+if (mysqli_query($conexion, $sqlcUp)) {
+
+  
+
+  echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> La consulta ha sido agregada  <img src=\"src/sistema/success.png\"
+  alt=\"chequess\" width=\"30\"height=\"30\">";
+
+} else {
+  echo "Error en el update pacientes: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+
+
+
+
 header("Estamos redireccionandote...");
-
-
-
 header("Location: http://localhost/CLINICA-MEDICA/historia.php?id_consulta=". $id_consulta);
 
 

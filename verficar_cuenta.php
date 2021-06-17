@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include_once("conexion/conexion.php");
 
 if(isset($_POST['btnlogin'])){

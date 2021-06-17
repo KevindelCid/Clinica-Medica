@@ -98,8 +98,8 @@ if($sesion == null || $sesion == ""){
 
 
 
-        <h2 class="mb-4">Historia</h2>
-        <h6>Ingresar la historia del paciente</h6> 
+        <h2 class="mb-4">Motivo de Consulta</h2>
+        <h6>Ingresar la razon de visita del paciente</h6> 
  
 
 
@@ -118,7 +118,7 @@ if($sesion == null || $sesion == ""){
               <div class="row">
                 <div class="col-md-20 form-group">
                   <label for="message" class="col-form-label"></label>
-                  <textarea placeholder="Historia..." class="form-control" name="motivo" id="motivo" cols="170" rows="10"></textarea>
+                  <textarea placeholder="Motivo de la consulta..." class="form-control" name="motivo" id="motivo" cols="170" rows="10"></textarea>
                 </div>
               </div>
      
@@ -142,45 +142,59 @@ if($sesion == null || $sesion == ""){
 </html>
 <?php
 
+
+
+
+
+
 include_once("conexion.php");
-$va=($_GET['id_consulta']);
-$variable1=$_GET["id_consulta"];
-echo "el id de la consulta es ".$variable1;
 
 if(isset($_POST['aggpacyc'])){
 
 
 
-    
-$sql = "INSERT INTO historias  VALUES (null, ".$variable1.", '".$_POST['motivo']."')";
 
 
-if (mysqli_query($conexion, $sql)) {
+date_default_timezone_set("America/Guatemala");
+$hoy = date("Y-m-d H:i:s");
+$id = $_GET['id'];
+$sqlc = "INSERT INTO consultas  VALUES (null, '".$id."', '".$hoy."','".$_POST['motivo']."')";
+if (mysqli_query($conexion, $sqlc)) {
 
- 
+  $id_consulta= mysqli_insert_id($conexion);
 
-      echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> El paciente se ha ingresado a la base de datos  <img src=\"src/sistema/success.png\"
-      alt=\"La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados\" width=\"30\"height=\"30\">";
-      
-header("Estamos redireccionandote...");
-
-
-
-header("Location: http://localhost/CLINICA-MEDICA/antecedentes.php?id_consulta=". $variable1);
-
-
-exit;
-
+  echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> La consulta ha sido agregada  <img src=\"src/sistema/success.png\"
+  alt=\"chequess\" width=\"30\"height=\"30\">";
 
 } else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+
+
+$sqlcUp = " update pacientes set id_ultima_consulta = $id_consulta where id_paciente =  
+(select id_paciente from consultas where id_consulta = $id_consulta)";
+
+if (mysqli_query($conexion, $sqlcUp)) {
+
+  
+
+  echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> La consulta ha sido agregada  <img src=\"src/sistema/success.png\"
+  alt=\"chequess\" width=\"30\"height=\"30\">";
+
+} else {
+  echo "Error en el update pacientes: " . $sql . "<br>" . mysqli_error($conn);
 }
 
 
 
 
-}
+header("Estamos redireccionandote...");
+header("Location: http://localhost/CLINICA-MEDICA/historia.php?id_consulta=". $id_consulta);
 
+
+
+}
 
 
 

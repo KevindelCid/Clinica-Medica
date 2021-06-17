@@ -1,5 +1,18 @@
 <?php
 ob_start();
+session_start();
+$sesion = $_SESSION['usuario'];
+
+if($sesion == null || $sesion == ""){
+
+
+
+  header("Location: http://localhost/CLINICA-MEDICA/login.php");
+  exit;
+
+}
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -105,53 +118,53 @@ ob_start();
                 </div>
                 <div class="col-md-6 form-group">
                   <label for="name" class="col-form-label">Antecedentes Alérgicos</label>
-                  <input type="text" class="form-control" name="med" id="med" placeholder="Alérgicos">
+                  <input type="text" class="form-control" name="aler" id="aler" placeholder="Alérgicos">
                 </div>
                 <div class="col-md-6 form-group">
                   <label for="name" class="col-form-label">Antecedentes Quirúrgicos</label>
-                  <input type="text" class="form-control" name="med" id="med" placeholder="Quirúrgicos">
+                  <input type="text" class="form-control" name="quir" id="quir" placeholder="Quirúrgicos">
                 </div>
                 <div class="col-md-12 form-group">
                   <label for="name" class="col-form-label">Antecedentes Traumáticos</label>
-                  <input type="text" class="form-control" name="med" id="med" placeholder="Traumáticos">
+                  <input type="text" class="form-control" name="trau" id="trau" placeholder="Traumáticos">
                 </div>
            
                 <div class="col-md-12 form-group">
                 <h6>Obstétricos</h6> 
  
                   <label for="name" class="col-form-label">Antecedentes Obstétricos</label>
-                  <input type="text" class="form-control" name="med" id="med" placeholder="Obstétricos">
+                  <input type="text" class="form-control" name="obs" id="obs" placeholder="Obstétricos">
                 </div>
                 <div class="col-md-6 form-group">
                 <label for="name" class="col-form-label">Meses de gestación</label>
-                  <input type="number" class="form-control" name="med" id="med" placeholder="Gestación">
+                  <input type="number" class="form-control" name="gest" id="gest" placeholder="Gestación">
                 </div>
                 <div class="col-md-6 form-group">
                 <label for="name" class="col-form-label">Numero de Partos</label>
-                  <input type="number" class="form-control" name="med" id="med" placeholder="Partos">
+                  <input type="number" class="form-control" name="part" id="part" placeholder="Partos">
                 </div>
                 <div class="col-md-6 form-group">
                 <label for="name" class="col-form-label">Numero de Cesáreas</label>
-                  <input type="number" class="form-control" name="med" id="med" placeholder="Cesáreas">
+                  <input type="number" class="form-control" name="cesar" id="cesar" placeholder="Cesáreas">
                 </div>
                 <div class="col-md-6 form-group">
                 <label for="name" class="col-form-label">Numero de Abortos</label>
-                  <input type="number" class="form-control" name="med" id="med" placeholder="Abortos">
+                  <input type="number" class="form-control" name="ab" id="ab" placeholder="Abortos">
                 </div>
                 <div class="col-md-6 form-group">
                 <label for="name" class="col-form-label">Menarquia</label>
-                  <input type="text" class="form-control" name="med" id="med" placeholder="Menarquia">
+                  <input type="text" class="form-control" name="mena" id="mena" placeholder="Menarquia">
                 </div>
                 <div class="col-md-6 form-group">
                 <label for="name" class="col-form-label">Última regla</label>
-                  <input type="text" class="form-control" name="med" id="med" placeholder="Última regla">
+                  <input type="text" class="form-control" name="ur" id="ur" placeholder="Última regla">
                 </div>
 
 
            
                 <div class="col-md-12 form-group">
                   <label for="message" class="col-form-label">Hábitos</label>
-                  <textarea placeholder="Hábitos..." class="form-control" name="motivo" id="motivo" cols="30" rows="3"></textarea>
+                  <textarea placeholder="Hábitos..." class="form-control" name="hab" id="hab" cols="30" rows="3"></textarea>
                 </div>
             
                 <div class="col-md-12  form-group">
@@ -174,13 +187,14 @@ ob_start();
 <?php
 
 include_once("conexion.php");
+$variable1=$_GET["id_consulta"];
 
 if(isset($_POST['aggpacyc'])){
 
 
 
     
-$sql = "INSERT INTO pacientes  VALUES (null, '".$_POST['ape1']."', '".$_POST['ape2']."','".$_POST['nom1']."','".$_POST['nom2']."','".$_POST['sexo']."','".$_POST['fecha']."','".$_POST['naci']."','".$_POST['resi']."')";
+$sql = "INSERT INTO antecedentes  VALUES (null, ".$variable1.", '".$_POST['fam']."','".$_POST['med']."','".$_POST['quir']."','".$_POST['trau']."','".$_POST['obs']."','".$_POST['gest']."','".$_POST['part']."','".$_POST['cesar']."','".$_POST['ab']."','".$_POST['mena']."','".$_POST['ur']."','".$_POST['hab']."','".$_POST['aler']."')";
 
 
 if (mysqli_query($conexion, $sql)) {
@@ -190,36 +204,23 @@ if (mysqli_query($conexion, $sql)) {
       echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> El paciente se ha ingresado a la base de datos  <img src=\"src/sistema/success.png\"
       alt=\"La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados\" width=\"30\"height=\"30\">";
 
+
+      header("Estamos redireccionandote...");
+
+
+
+      header("Location: http://localhost/CLINICA-MEDICA/examen-fisico.php?id_consulta=". $variable1);
+      
+      exit;
+
+
 } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
 
-date_default_timezone_set("America/Guatemala");
-$id= mysqli_insert_id($conexion);
-$hoy = date("Y-m-d H:i:s");
-$sqlc = "INSERT INTO consultas  VALUES (null, '".$id."', '".$hoy."','".$_POST['motivo']."')";
-if (mysqli_query($conexion, $sqlc)) {
-
- 
-
-  echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> La consulta ha sido agregada  <img src=\"src/sistema/success.png\"
-  alt=\"chequess\" width=\"30\"height=\"30\">";
-
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
 
 
-
-header("Estamos redireccionandote...");
-
-
-
-header("Location: http://localhost/CLINICA-MEDICA/examen-fisico.php");
-
-
-exit;
 
 
 }

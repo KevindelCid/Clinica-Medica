@@ -1,3 +1,24 @@
+
+
+<?php
+ob_start();
+session_start();
+$sesion = $_SESSION['usuario'];
+
+if($sesion == null || $sesion == ""){
+
+
+
+  header("Location: http://localhost/CLINICA-MEDICA/login.php");
+  exit;
+
+}
+
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -32,13 +53,19 @@
               <a href="nuevo_paciente.php"><span class="fa fa-user"></span> Nuevo Paciente</a>
           </li>
           <li>
-            <a href="#"><span class="fa fa-users"></span> Pacientes</a>
+            <a href="pacientes.php"><span class="fa fa-users"></span> Pacientes</a>
           </li>
           <li>
             <a href="#"><span class="fa fa-money"></span> Facturación</a>
           </li>
           <li>
             <a href="#"><span class="fa fa-table"></span> Agenda</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-table"></span> Inteligencia de negocio</a>
+          </li>
+          <li>
+            <a href="cerrar_sesion.php"><span class="fa fa-sign-out"></span> Cerrar sesión</a>
           </li>
         </ul>
 

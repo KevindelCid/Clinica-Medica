@@ -1,6 +1,4 @@
 
-
-
 <?php
 ob_start();
 session_start();
@@ -17,30 +15,17 @@ if($sesion == null || $sesion == ""){
 
 
 ?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
   	<title>Página principal</title>
-
-
-
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<link rel="stylesheet" href="css/styletab.css">
-
-
-
-
-
-
-
-
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:300,400,500,700">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="./css/libs.css">
+        <link rel="stylesheet" href="css/libs.css">
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,7 +33,7 @@ if($sesion == null || $sesion == ""){
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="css/style.css">
   </head>
   <body>
 		
@@ -75,10 +60,17 @@ if($sesion == null || $sesion == ""){
           <li>
             <a href="#"><span class="fa fa-table"></span> Agenda</a>
           </li>
+          <li>
+            <a href="#"><span class="fa fa-table"></span> Inteligencia de negocio</a>
+          </li>
+          <li>
+            <a href="cerrar_sesion.php"><span class="fa fa-sign-out"></span> Cerrar sesión</a>
+          </li>
         </ul>
 
         <div class="footer">
         	<p>
+					  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
 					</p>
         </div>
     	</nav>
@@ -116,70 +108,34 @@ if($sesion == null || $sesion == ""){
           </div>
         </nav>
 
-        <h2 class="mb-4">Seguimiento de consultas...</h2>
+        <h2 class="mb-4">Página Principal</h2>
+       
+      
+      
+        <nav class="site-navigation">
 
-<?php
-
-
-include_once("conexion.php");
-
-//con esta consulta llamaremos a todos los pacientes y l
-$sql = " SELECT `pacientes`.`id_paciente`, `pacientes`.`apellido1`,`pacientes`.`apellido2`,`pacientes`.`nombre1`,`pacientes`.`nombre2`,`pacientes`.`sexo`,`pacientes`.`telefono`,
-YEAR(CURDATE())-YEAR(`pacientes`.`f_nacimiento`) + 
-IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(`pacientes`.`f_nacimiento`,'%m-%d'), 0 , -1 ) 
-AS `EDAD_ACTUAL`  , `pacientes`.`ultima_consulta`,`consultas`.`motivo_consulta` FROM `pacientes` inner join consultas 
-ON `pacientes`.`id_ultima_consulta` = `consultas`.`id_consulta`";
-
-$resultado = mysqli_query($conexion,$sql);
-
-
-?>
-
-
-
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Apelido 1</th>
-        <th scope="col">Apellido 2</th>
-        <th scope="col">Nombre 1</th>
-        <th scope="col">Nombre 2</th>
-        <th scope="col">Sexo</th>
-        <th scope="col">Teléfono</th>
-        <th scope="col">Edad</th>
-        <th scope="col">Ultima consulta</th>
-        <th scope="col">Motivo de consulta</th>
-        <th scope="col">Actuadores</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php  $contador =0; while($filas=mysqli_fetch_assoc($resultado)) { $contador++;?>
-      <tr>
-        <th scope="row"><?php echo $contador ?></th>
-        <td><?php echo $filas['apellido1'] ?></td>
-        <td><?php echo $filas['apellido2'] ?></td>
-        <td><?php echo $filas['nombre1'] ?></td>
-        <td><?php echo $filas['nombre2'] ?></td>
-        <td><?php echo $filas['sexo'] ?></td>
-        <td><?php echo $filas['telefono'] ?></td>
-        <td><?php echo $filas['EDAD_ACTUAL'] ?></td>
-        <td><?php echo $filas['ultima_consulta'] ?></td>
-        <td><?php echo $filas['motivo_consulta'] ?></td>
-<td>
-
-        <input onclick="location.href='motivo_consulta.php?id=<?php echo $filas['id_paciente'] ?>';" type="submit" name="nconsul" id="nconsul"  value="Nueva consulta" class="btn btn-block btn-primary rounded-0 py-2 px-4">
-        </td>
-
-      </tr>
-      <?php } ?>
+       
+    
+    
+            <div class="col-xs-10 col-sm-6">
+                <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/bi.jpg');">
      
-    </tbody>
-  </table>
-</div>
+                  <div class="card-description">
+                    <h2 style="color: white;">Toma de desiciones</h2>
+                    <p>Business intelligence...</p>
+                  </div>
+                  <img class="card-user avatar avatar-large" src="images/about-me.jpg">
+                  <a class="card-link" href="bi.php" ></a>
 
-
+                  
+                </div>
+              </div>
+             
+            
+        
+   
+    
+        <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
       
