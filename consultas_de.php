@@ -47,8 +47,16 @@ if($sesion == null || $sesion == ""){
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="css/estilo.css">
   </head>
   <body>
+
+  <div class="contenedor_loader">
+     
+     <img class ="coso2" src="src/login/login.jpeg" id="icon" alt="User Icon" width="400px" height="300px"/>
+   <div class="loader"></div>
+   </div>
+
 		
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
@@ -114,7 +122,7 @@ if($sesion == null || $sesion == ""){
           </div>
         </nav>
 
-        <h2 class="mb-4">Pacientes...</h2>
+        <h2 class="mb-4">Consultas de...</h2>
 
 <?php
 
@@ -183,7 +191,7 @@ $resultado = mysqli_query($conexion,$sql);
       
       </div>
 		</div>
-
+        <script src="js/olcu.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>

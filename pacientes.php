@@ -48,8 +48,16 @@ if($sesion == null || $sesion == ""){
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="css/estilo.css">
   </head>
   <body>
+
+  <div class="contenedor_loader">
+     
+     <img class ="coso2" src="src/login/login.jpeg" id="icon" alt="User Icon" width="400px" height="300px"/>
+   <div class="loader"></div>
+   </div>
+
 		
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
@@ -126,8 +134,7 @@ include_once("conexion.php");
 $sql = " SELECT `pacientes`.`id_paciente`, `pacientes`.`apellido1`,`pacientes`.`apellido2`,`pacientes`.`nombre1`,`pacientes`.`nombre2`,`pacientes`.`sexo`,`pacientes`.`telefono`,
 YEAR(CURDATE())-YEAR(`pacientes`.`f_nacimiento`) + 
 IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(`pacientes`.`f_nacimiento`,'%m-%d'), 0 , -1 ) 
-AS `EDAD_ACTUAL`   FROM `pacientes` inner join consultas 
-ON `pacientes`.`id_ultima_consulta` = `consultas`.`id_consulta`";
+AS `EDAD_ACTUAL`   FROM `pacientes` ";
 
 $resultado = mysqli_query($conexion,$sql);
 
@@ -165,8 +172,10 @@ $resultado = mysqli_query($conexion,$sql);
      
 <td>
 
-        <input onclick="location.href='consultas_de.php?id=<?php echo $filas['id_paciente'] ?>';" type="submit" name="nconsul" id="nconsul"  value="Consultas" class="btn btn-block btn-primary rounded-0 py-2 px-4">
-        </td>
+        <input onclick="location.href='consultas_de.php?id=<?php echo $filas['id_paciente'] ?>';" type="submit" name="nconsul" id="nconsul"  value="Ver Consultas" class="btn btn-block btn-primary rounded-0 py-2 px-4">
+        <input onclick="location.href='motivo_consulta.php?id=<?php echo $filas['id_paciente'] ?>';" type="submit" name="newconsul" id="newconsul"  value="Empezar Nueva Consulta" class="btn btn-block btn-primary rounded-0 py-2 px-4">
+
+    </td>
 
       </tr>
       <?php } ?>
@@ -182,7 +191,7 @@ $resultado = mysqli_query($conexion,$sql);
       
       </div>
 		</div>
-
+        <script src="js/olcu.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>

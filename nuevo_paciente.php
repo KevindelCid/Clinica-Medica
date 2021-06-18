@@ -25,10 +25,19 @@ if($sesion == null || $sesion == ""){
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilo.css">
         <link rel="stylesheet" href="css/formpacientes.css"/>
   </head>
   <body>
 		
+
+  <div class="contenedor_loader">
+     
+     <img class ="coso2" src="src/login/login.jpeg" id="icon" alt="User Icon" width="400px" height="300px"/>
+   <div class="loader"></div>
+   </div>
+
+
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
 				<h1><a href="home.php" class="logo">CM</a></h1>
@@ -100,7 +109,7 @@ if($sesion == null || $sesion == ""){
         <h2 class="mb-4">Nuevo Paciente</h2>
         <h6>Ingrese los datos que se solicitan a continuación</h6>
  
-        <form method="POST" action="primera-consulta.php">
+        <form method="POST" >
 <div class="container">
   <div class="row">
     <div class="col-xs-6 col-md-10">
@@ -114,6 +123,8 @@ if($sesion == null || $sesion == ""){
           <input name="nom1" id="remitosucursal" type="text" required class="form-control" placeholder="Primer Nombre">
           <span class="input-group-addon" style="color: white;">-</span>
           <input name="nom2" id="remitonumero" type="text" required class="form-control" placeholder="Segundo Nombre">
+          <span class="input-group-addon" style="color: white;">-</span>
+          <input name="tel" id="remitonumero" type="number"  class="form-control" placeholder="Número de teléfono">
         </div>
         <label for="">Nro. remito</label>
         <div class="input-group">
@@ -121,8 +132,8 @@ if($sesion == null || $sesion == ""){
           <span class="input-group-addon" style="color: white;">-</span>
           <select name="sexo" value="Hombre/Mujer" id="remitonumero" type="text" required class="form-control" placeholder="Segundo Apellido">
           <option value="value1"selected >Seleccione el Sexo</option>
-  <option value="value2" >Masculino</option>
-  <option value="value3">Femenino</option>
+  <option value="M" >Masculino</option>
+  <option value="F">Femenino</option>
         </select>
           <span class="input-group-addon" style="color: white;">--------------</span>
           <input name="naci" id="remitosucursal" type="text" required class="form-control" placeholder="Lugar de nacimiento">
@@ -138,6 +149,7 @@ if($sesion == null || $sesion == ""){
 </div>
 
         </form>
+        <script src="js/olcu.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -153,12 +165,12 @@ if(isset($_POST['aggpac'])){
 
 
     
-$sql = "INSERT INTO pacientes  VALUES (null, '".$_POST['ape1']."', '".$_POST['ape2']."','".$_POST['nom1']."','".$_POST['nom2']."','".$_POST['sexo']."','".$_POST['fecha']."','".$_POST['naci']."','".$_POST['resi']."')";
+$sql = "INSERT INTO pacientes  VALUES (null, '".$_POST['ape1']."', '".$_POST['ape2']."','".$_POST['nom1']."','".$_POST['nom2']."','".$_POST['sexo']."','".$_POST['fecha']."','".$_POST['naci']."','".$_POST['resi']."',null,'".$_POST['tel']."',null)";
 if (mysqli_query($conexion, $sql)) {
       echo "<p style=\"color: white;\">-</p> <span class=\"input-group-addon\" style=\"color: white;\">--------------------------------------------------------------------------------</span> El paciente se ha ingresado a la base de datos  <img src=\"src/sistema/success.png\"
       alt=\"chequsito\" width=\"30\"height=\"30\">";
 } else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
 }
 
 

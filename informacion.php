@@ -47,8 +47,16 @@ if($sesion == null || $sesion == ""){
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="css/estilo.css">
   </head>
   <body>
+
+  <div class="contenedor_loader">
+     
+     <img class ="coso2" src="src/login/login.jpeg" id="icon" alt="User Icon" width="400px" height="300px"/>
+   <div class="loader"></div>
+   </div>
+
 		
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
@@ -118,6 +126,23 @@ if($sesion == null || $sesion == ""){
 
 <?php
 
+function cambiaf_a_espanol($fecha){
+    preg_match( '/([0-9]{2,4})-([0-9]{1,2})-([0-9]{1,2})/', $fecha, $mifecha);
+    $lafecha=$mifecha[3]."/".$mifecha[2]."/".$mifecha[1];
+    return $lafecha;
+}
+function sex($sexo){
+
+    if($sexo == "F"){
+
+        return "Femenino";
+
+    }else{
+
+        return "Masculino";
+    }
+}
+
 
 include_once("conexion.php");
 
@@ -125,7 +150,7 @@ $id = $_GET['id'];
 
 //con esta consulta llamaremos a todos los pacientes y l
 $sql = " select fecha_consulta, motivo_consulta, apellido1,apellido2,nombre1,nombre2,sexo, 
-YEAR(CURDATE())-YEAR(`pacientes`.`f_nacimiento`) + 
+YEAR(fecha_consulta)-YEAR(`pacientes`.`f_nacimiento`) + 
 IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(`pacientes`.`f_nacimiento`,'%m-%d'), 0 , -1 ) 
 AS `EDAD_ACTUAL`, `pacientes`.`telefono`,`historias`.`historia`,`antecedentes`.`antecedentes_familiares`,
 `antecedentes`.`antecedentes_medicos`,`antecedentes`.`antecedentes_quirurgicos`,`antecedentes`.`antecedentes_traumaticos`,
@@ -148,43 +173,82 @@ $resultado = mysqli_query($conexion,$sql);
 
 
 
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Apelido 1</th>
-        <th scope="col">Apellido 2</th>
-        <th scope="col">Nombre 1</th>
-        <th scope="col">Nombre 2</th>
-        <th scope="col">Sexo</th>
-        <th scope="col">Teléfono</th>
-        <th scope="col">Edad</th>
-        <th scope="col">IMC</th>
-        <th scope="col">Actuadores</th>
-       
-        
-      </tr>
-    </thead>
-    <tbody>
       <?php  $contador =0; while($filas=mysqli_fetch_assoc($resultado)) { $contador++;?>
-      <tr>
-        <th scope="row"><?php echo $contador ?></th>
-        <td><?php echo $filas['apellido1'] ?></td>
-        <td><?php echo $filas['apellido2'] ?></td>
-        <td><?php echo $filas['nombre1'] ?></td>
-        <td><?php echo $filas['nombre2'] ?></td>
-        <td><?php echo $filas['sexo'] ?></td>
-        <td><?php echo $filas['telefono'] ?></td>
-        <td><?php echo $filas['EDAD_ACTUAL'] ?></td>
-        <td><?php echo $filas['imc'] ?></td>
+      
+        <h4> Fecha de la consulta: </h4>
+        <?php echo cambiaf_a_espanol($filas['fecha_consulta']) ?>
+        
+      <h4> Nombre completo: </h4> <?php echo $filas['apellido1'] ?>
+        <?php echo $filas['apellido2'] ?>
+        <?php echo $filas['nombre1'] ?>
+        <?php echo $filas['nombre2'] ?>
+        <h4> Sexo: </h4>
+        <?php echo sex( $filas['sexo'])?>
+        <h4> Teléfono: </h4>
+        <?php echo $filas['telefono'] ?>
+        <h4> Edad: </h4>
+        <?php echo $filas['EDAD_ACTUAL'] ?>
+        <h4> Motivo de la consulta: </h4>
+        <?php echo $filas['motivo_consulta'] ?>
+        <h4> Historia: </h4>
+        <?php echo $filas['historia'] ?>
+        <h4> Antecedentes familiares: </h4>
+        <?php echo $filas['antecedentes_familiares'] ?>
+        <h4> Antecedentes Médicos: </h4>
+        <?php echo $filas['antecedentes_medicos'] ?>
+        <h4> Antecedentes Quirúrgicos: </h4>
+        <?php echo $filas['antecedentes_quirurgicos'] ?>
+        <h4> Antecedentes Traumáticos: </h4>
+        <?php echo $filas['antecedentes_traumaticos'] ?>
+        <h4> Antecedentes Alérgicos: </h4>
+        <?php echo $filas['antecedentes_alergicos'] ?>
+
+        <h4> Obstétricos: </h4>
+        <?php echo $filas['obstetricos'] ?>
+        <h4> Meses de gestación: </h4>
+        <?php echo $filas['gestacion'] ?>
+        <h4> Partos: </h4>
+        <?php echo $filas['partos'] ?>
+        <h4> Cesareas: </h4>
+        <?php echo $filas['cesareas'] ?>
+        <h4> Abortos: </h4>
+        <?php echo $filas['abortos'] ?>
+        <h4> Menarquia: </h4>
+        <?php echo $filas['menarquia'] ?>
+        <h4> Ultima Regla: </h4>
+        <?php echo $filas['ur'] ?>
+        <h4> Hábitos: </h4>
+        <?php echo $filas['habitos'] ?>
+        <h4> Presion Arterial: </h4>
+        <?php echo $filas['presion_arterial'] ?>
+        <h4> Pulso: </h4>
+        <?php echo $filas['pulso'] ?>
+        <h4> Frecuencia Respiratoria: </h4>
+        <?php echo $filas['freq_resp'] ?>
+        <h4> Frecuencia Cardiaca: </h4>
+        <?php echo $filas['freq_cardiaca'] ?>
+        <h4> Temperatura: </h4>
+        <?php echo $filas['temperatura']."℃" ?>
+        <h4> Talla (estatura): </h4>
+        <?php echo $filas['talla']."ctms." ?>
+        <h4> Peso: </h4>
+        <?php echo $filas['peso']."lbs." ?>
+        <h4> IMC: </h4>
+        <?php echo $filas['imc'] ?>
+        <h4> Categoría de peso: </h4>
+        <?php echo $filas['peso_cat'] ?>
+        <h4> Peso ideal: </h4>
+        <?php echo $filas['peso_ideal']."lbs." ?>
+        <h4> Exeso de peso : </h4>
+        <?php echo $filas['exceso_peso']."lbs." ?>
+        <h4> Observaciones: </h4>
+        <?php echo $filas['observaciones'] ?>
+
+
+
+
      
-<td>
 
-        <input onclick="location.href='informacion.php?id=<?php echo $filas['id_paciente'] ?>';" type="submit" name="nconsul" id="nconsul"  value="Información" class="btn btn-block btn-primary rounded-0 py-2 px-4">
-        </td>
-
-      </tr>
       <?php } ?>
      
     </tbody>
@@ -198,7 +262,7 @@ $resultado = mysqli_query($conexion,$sql);
       
       </div>
 		</div>
-
+        <script src="js/olcu.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>

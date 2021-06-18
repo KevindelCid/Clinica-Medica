@@ -35,9 +35,19 @@ if($sesion == null || $sesion == ""){
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilo.css">
   </head>
-  <body>
-		
+  <body style="background-color:#FFFFFF;">
+    
+
+		<div class="contenedor_loader">
+     
+      <img class ="coso2" src="src/login/login.jpeg" id="icon" alt="User Icon" width="400px" height="300px"/>
+    <div class="loader"></div>
+    </div>
+
+
+
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
 				<h1><a href="home.php" class="logo">CM</a></h1>
@@ -108,71 +118,71 @@ if($sesion == null || $sesion == ""){
             </div>
           </div>
         </nav>
-
-        <h2 class="mb-4">Página Principal</h2>
-       
+        <p class="centrado">
+        <img class ="coso2" src="src/login/login.jpeg" id="icon" alt="User Icon" width="300px" height="200px"/>
       
-      
+        </p>
         <nav class="site-navigation">
 
        
     
     
-            <div class="col-xs-10 col-sm-6">
+            <div class="col-xs-4 col-sm-3">
                 <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/consulta.jpg');">
      
                   <div class="card-description">
                     <h2 style="color: white;">Nueva Consulta</h2>
                     <p>Ha llegado una persona a consulta...</p>
                   </div>
-                  <img class="card-user avatar avatar-large" src="images/about-me.jpg">
+                 
                   <a class="card-link" href="consulta.php" ></a>
                 </div>
               </div>
-              <div class="col-xs-10 col-sm-6">
+              <div class="col-xs-4 col-sm-3">
                 <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/nuevopaciente.jpg');">
           
                   <div class="card-description">
                     <h2 style="color: white;">Ingresar un nuevo paciente</h2>
                     <p>Ingresar un paciente a la base de datos</p>
                   </div>
-                  <img class="card-user avatar avatar-large" src="images/danielCard.jpg">
                   <a class="card-link" href="#" ></a>
                 </div>
               </div>
-              <div class="col-xs-10 col-sm-6">
+              <div class="col-xs-10 col-sm-3">
                 <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/pacientes.png');">
      
                   <div class="card-description">
                     <h2 style="color: white;">Listado de pacientes</h2>
                     <p>Visualizar o buscar pacientes/ acceder a su información(Acceso restringido)</p>
                   </div>
-                  <img class="card-user avatar avatar-large" src="images/about-me.jpg">
-                  <a class="card-link" href="libros.html" ></a>
+                  <a class="card-link" href="pacientes.php" ></a>
                 </div>
               </div>
-              <div class="col-xs-10 col-sm-6">
-                <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/sat.png');">
-          
-                  <div class="card-description">
-                    <h2 style="color: white;">Facturar en linea</h2>
-                    <p>Facturar el linea desde el portal de la SAT</p>
-                  </div>
-                  <img class="card-user avatar avatar-large" src="images/danielCard.jpg">
-                  <a class="card-link" target="_blank" href="https://portal.sat.gob.gt/portal/" ></a>
-                </div>
-              </div>
-              <div class="col-xs-10 col-sm-6">
+
+
+              <div class="col-xs-10 col-sm-3">
                 <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/agenda.jpg');">
           
                   <div class="card-description">
                     <h2 style="color: white;">Agenda</h2>
                     <p>Visualizar las citas y programar nuevas citas</p>
                   </div>
-                  <img class="card-user avatar avatar-large" src="images/danielCard.jpg">
                   <a class="card-link" href="#" ></a>
                 </div>
               </div>
+
+
+              <!-- <div class="col-xs-10 col-sm-6">
+                <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('src/sistema/sat.png');">
+          
+                  <div class="card-description">
+                    <h2 style="color: white;">Facturar en linea</h2>
+                    <p>Facturar el linea desde el portal de la SAT</p>
+                  </div>
+                  <a class="card-link" target="_blank" href="https://portal.sat.gob.gt/portal/" ></a>
+                </div>
+              </div>
+             -->
             
             
         
@@ -185,7 +195,7 @@ if($sesion == null || $sesion == ""){
       
       </div>
 		</div>
-
+    <script src="js/olcu.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>

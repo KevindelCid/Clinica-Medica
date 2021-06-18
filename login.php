@@ -33,8 +33,16 @@ if($sesion == null || $sesion == ""){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
+
+<div class="contenedor_loader">
+     
+     <img class ="coso2" src="src/login/login.jpeg" id="icon" alt="User Icon" width="400px" height="300px"/>
+   <div class="loader"></div>
+   </div>
+
 
 <div class="wrapper fadeInDown">
   <div id="formContent">
@@ -44,7 +52,7 @@ if($sesion == null || $sesion == ""){
 
     <!-- Icon -->
     <div class="fadeIn first">
-      <img src="src/login/login.png" id="icon" alt="User Icon" />
+      <img src="src/login/login.jpeg" id="icon" alt="User Icon" />
     </div>
    
     <!-- Login Form -->
@@ -99,5 +107,6 @@ echo"Usuario o contraseña incorrecto";
 
   </div>
 </div>
+<script src="js/olcu.js"></script>
 </body>
 </html>

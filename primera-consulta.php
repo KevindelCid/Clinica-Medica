@@ -27,9 +27,18 @@ if($sesion == null || $sesion == ""){
     <script src='fullcalendar/main.js'></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilo.css">
         <link rel="stylesheet" href="css/formpacientes.css"/>
   </head>
   <body>
+
+  <div class="contenedor_loader">
+     
+     <img class ="coso2" src="src/login/login.jpeg" id="icon" alt="User Icon" width="400px" height="300px"/>
+   <div class="loader"></div>
+   </div>
+
+
 		
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
@@ -228,7 +237,7 @@ if($sesion == null || $sesion == ""){
       </div>
   </div>
     
-
+  <script src="js/olcu.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
